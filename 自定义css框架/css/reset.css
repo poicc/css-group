@@ -1,0 +1,19 @@
+/* 自定义的重置样式 */
+
+* {
+  box-sizing: border-box;
+
+}
+
+body {
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f6f6f6;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}

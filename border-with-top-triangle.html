@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border-with-top-triangle</title>
+    <style>
+        /* 创建顶部带有三角形的内容容器。
+        使用:before和:after伪元素创建两个三角形。
+        这两个三角形的颜色应该分别与容器的边界色和容器的背景色相同。
+        一个三角形(:before)的边框宽度应该比另一个三角形(:after)宽1px，以作为边框。
+        较小的三角形(:after)应该在较大的三角形(:before)的右边1px，以便显示其左边框。 */
+        .container {
+            position: relative;
+            background: #87b2e2;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            margin-top: 20px;
+            width: 300px;
+            height: 150px;
+            border-radius: 5px;
+        }
+
+        .container:before,
+        .container:after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 19px;
+            border: 11px solid transparent;
+            border-bottom-color: #dddddd;
+        }
+
+        .container:after {
+            left: 20px;
+            border: 10px solid transparent;
+            border-bottom-color: #87b2e2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">Border with top triangle</div>
+</body>
+
+</html>

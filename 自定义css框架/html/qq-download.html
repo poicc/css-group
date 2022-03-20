@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/my.css">
+  <title>自定义框架练习1</title>
+  <style>
+    body {
+      background-color: #888;
+    }
+
+    .box {
+      height: 200px;
+      border: 1px solid orange;
+    }
+
+
+    .header {
+      height: 76px;
+      background-color: #fff;
+    }
+
+    .header-left .logo {
+      width: 110px;
+      height: 76px;
+
+    }
+
+    .header-left a {
+      color: #333;
+      width: 76px;
+      height: 76px;
+      line-height: 76px;
+      text-align: center;
+      font-size: 16px;
+      padding: 10px 10px;
+    }
+
+    .header-left a img {
+      vertical-align: middle;
+    }
+
+    .header-right {
+      height: 76px;
+    }
+
+    .header-right .btn-wrapper {
+      text-align: center;
+      height: 76px;
+      line-height: 76px;
+    }
+  </style>
+</head>
+
+<!-- emmit语法 -->
+
+<body>
+  <div class="container header">
+    <div class="row-no-gutters">
+      <div class="header-left col-md-5 green">
+        <a href="#" class="logo">
+          <img src="../img/logo.png" alt="" width="90">
+        </a>
+        <a href="#">首页</a>
+        <a href="#">下载</a>
+        <a href="#">动态</a>
+      </div>
+
+
+      <div class="header-right col-md-5 col-md-push-2">
+        <div class="row-no-gutters">
+          <div class="col-md-6 btn-wrapper dark-red">
+            <button class="btn btn-primary">
+              注册注册注册
+            </button>
+          </div>
+
+          <div class="col-md-6 red user">
+            <p>
+              <a href="#">QQ会员</a>
+              <a href="#">QQ安全</a>
+              <a href="#">
+                <img src="../img/me.jpg" width="40" height="40" class="img-rounded">
+              </a>
+            </p>
+
+            <p>
+              当前在线人数：454546464人
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>

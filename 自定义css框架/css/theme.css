@@ -1,0 +1,22 @@
+/* 主题样式 */
+
+.red {
+  background-color: #f44336;
+  color: #f6f6f6;
+}
+
+.light-red {
+  background-color: #ffcdd2;
+  color: #333;
+}
+
+.dark-red {
+  background-color: #b71c1c;
+  color: #f6f6f6;
+}
+
+
+.green {
+  background-color: green;
+  color: #f6f6f6;
+}

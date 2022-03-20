@@ -1,0 +1,14 @@
+.btn {
+  border: none;
+  outline: none;
+
+}
+
+.btn-primary {
+  background-color: #DE7576;
+  color: #f6f6f6;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
