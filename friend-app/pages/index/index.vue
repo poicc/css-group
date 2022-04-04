@@ -1,49 +1,19 @@
 <template>
 	<view class="p-2">
-		<view v-for="(item,index) in list" :key="index" class="mb-3">
-			<view class="info-wrapper">
-				<image :src="item.avatarUrl" lazy-load class="avatar"></image>
-				<view class="flex-1">
-					<view class="text-md">{{item.nickname}}</view>
-					<view class="publish-time">{{item.publishTime}}</view>
-				</view>
-				<view class="follow-btn">
-					关注
-				</view>
-			</view>
-
-			<view class="text-lg my-1 py-1">
-				{{item.title}}
-			</view>
-
-			<!-- 图片 -->
-			<image :src="item.thumbnail" style="height:350rpx;width:100%;border-radius: 5rpx;"></image>
-
-			<!-- 图标 -->
-			<view class="flex align-center">
-				<view class="icon-wrapper">
-					<text class="iconfont icon-dianzan2 mr-2"></text>
-					<text>{{item.support.supportCount}}</text>
-				</view>
-				<view class="icon-wrapper">
-					<text class="iconfont icon-cai mr-2"></text>
-					<text>{{item.support.unSupportCount}}</text>
-				</view>
-				<view class="icon-wrapper">
-					<text class="iconfont icon-pinglun2 mr-2"></text>
-					<text>{{item.commentCount}}</text>
-				</view>
-				<view class="icon-wrapper">
-					<text class="iconfont icon-fenxiang mr-2"></text>
-					<text>{{item.shareCount}}</text>
-				</view>
-			</view>
+		<view v-for="(item, index) in list" :key="index" class="mb-3">
+			<common-list-item :item="item" :index="index" @follow="follow" @doSupport="doSupport" @unFollow="unFollow">
+			</common-list-item>
+			<divider v-if="index != list.length -1"></divider>
 		</view>
 	</view>
 </template>
 
 <script>
+	import commonListItem from '@/components/common/common-list-item.vue';
 	export default {
+		components: {
+			commonListItem
+		},
 		data() {
 			return {
 				list: [{
@@ -98,9 +68,35 @@
 
 		},
 		methods: {
+			follow(e) {
+				console.log("关注")
+				this.list[e].isFollow = true
+				uni.showToast({
+					title: "关注成功"
+				})
+			},
 
+			unFollow(e) {
+				this.list[e].isFollow = false
+				uni.showToast({
+					title: "取关成功"
+				})
+			},
+
+
+			doSupport(e) {
+				let item = this.list[e.index]
+				// 执行了"踩"操作
+				if (item.support.type === 'support' && e.type === 'unSupport') {
+					item.support.supportCount--;
+					item.support.unSupportCount++;
+				} else if (item.support.type === 'unSupport' && e.type === 'support') {
+					item.support.supportCount++;
+					item.support.unSupportCount--;
+				}
+			}
 		}
-	}
+	};
 </script>
 
 <style lang="less" scoped>
@@ -121,7 +117,7 @@
 
 	.publish-time {
 		.text-sm;
-		color: #9D9589;
+		color: #9d9589;
 	}
 
 	.follow-btn {
@@ -132,7 +128,7 @@
 		.justify-center;
 		.rounded-md;
 		.text-white;
-		.bg-primary;
+		.bg-pink;
 	}
 
 	.icon-wrapper {
