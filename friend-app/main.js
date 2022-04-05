@@ -1,6 +1,11 @@
 import App from './App'
+
 import divider from '@/components/common/devider.vue'
 Vue.component('divider',divider)
+
+import nothing from '@/components/common/nothing.vue'
+Vue.component('nothing',nothing)
+
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false

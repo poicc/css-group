@@ -16,14 +16,14 @@
 		<!-- 图标 -->
 		<view class=" flex-1 flex align-center justify-around">
 			<!-- 顶 -->
-			<view class="icon-wrapper animated fast" hover-class="jello" @tap="doSupport('support')"
-				:class="item.support.type === 'support' ? 'support-active' : ''">
+			<view class="icon-wrapper animated fast" hover-class="jello text-primary" @tap="doSupport('support')"
+				:class="item.support.type == 'support' ? 'support-active' : ''">
 				<text class="iconfont icon-dianzan2 mr-2"></text>
 				<text>{{ item.support.supportCount }}</text>
 			</view>
 			<!-- 踩-->
-			<view class="icon-wrapper animated fast" hover-class="jello" @tap="doSupport('unSupport')"
-				:class="item.support.type === 'unSupport' ? 'support-active' : ''">
+			<view class="icon-wrapper animated fast" hover-class="jello text-primary" @tap="doSupport('unSupport')"
+				:class="item.support.type == 'unSupport' ? 'support-active' : ''">
 				<text class="iconfont icon-cai mr-2"></text>
 				<text>{{ item.support.unSupportCount }}</text>
 			</view>
@@ -125,7 +125,7 @@
 		.justify-center;
 	}
 
-	.support-avtive {
-		color: #769fcd;
+	.support-active {
+		.text-primary;
 	}
 </style>
