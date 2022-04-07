@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<scroll-view scroll-x class="scroll-row shadow" style="100rpx;">
+		<scroll-view scroll-x class="scroll-row shadow" style="height: 100rpx;">
 			<view v-for="(item, index) in tabBars" class="scroll-row-item px-3 py-2 font-md" :key="index"
 				:class="tabIndex === index ? 'text-primary  text-lg font-weight-bolder' : '' " @tap="changeTab(index)">
 				{{ item.name }}
@@ -33,6 +33,96 @@
 </template>
 
 <script>
+	const demo = [{
+			nickname: '程序员鼓励师',
+			avatarUrl: '/static/img/me.jpg',
+			publishTime: '2022-04-03 19:20:12',
+			isFollow: false,
+			title: '',
+			thumbnail: '/static/img/banner1.jpg',
+			support: {
+				type: "support",
+				supportCount: 8,
+				unSupportCount: 2
+			},
+			commentCount: 10,
+			shareCount: 12
+		},
+		{
+			nickname: 'poicc',
+			avatarUrl: '/static/img/avatar1.jpg',
+			publishTime: '2022-04-03 20:20:12',
+			isFollow: false,
+			title: '穿过鲜花 走过荆棘 只为自由之地',
+			thumbnail: '/static/img/banner2.jpg',
+			support: {
+				type: "support",
+				supportCount: 8,
+				unSupportCount: 2
+			},
+			commentCount: 10,
+			shareCount: 12
+		},
+		{
+			nickname: 'mob',
+			avatarUrl: '/static/img/avatar2.jpg',
+			publishTime: '2022-04-03 21:20:12',
+			isFollow: false,
+			title: '我多想跑到海边 吹着海风',
+			thumbnail: '/static/img/banner3.jpeg',
+			support: {
+				type: "support",
+				supportCount: 8,
+				unSupportCount: 2
+			},
+			commentCount: 10,
+			shareCount: 12
+		},
+		{
+			nickname: 'mob',
+			avatarUrl: '/static/img/avatar3.jpeg',
+			publishTime: '2022-04-03 21:20:12',
+			isFollow: false,
+			title: '种子',
+			thumbnail: '/static/img/banner4.jpeg',
+			support: {
+				type: "",
+				supportCount: 0,
+				unSupportCount: 0
+			},
+			commentCount: 0,
+			shareCount: 0
+		},
+		{
+			nickname: 'poicc',
+			avatarUrl: '/static/img/avatar4.jpg',
+			publishTime: '2022-04-03 21:20:12',
+			isFollow: false,
+			title: '日子老师yyds',
+			thumbnail: '/static/img/banner5.jpg',
+			support: {
+				type: "support",
+				supportCount: 8,
+				unSupportCount: 2
+			},
+			commentCount: 10,
+			shareCount: 12
+		}, {
+			nickname: 'jo太郎',
+			avatarUrl: '/static/img/avatar5.png',
+			publishTime: '2022-04-03 21:20:12',
+			isFollow: false,
+			title: '呀嘞呀嘞daze',
+			thumbnail: '/static/img/banner6.png',
+			support: {
+				type: "support",
+				supportCount: 8,
+				unSupportCount: 2
+			},
+			commentCount: 10,
+			shareCount: 12
+		},
+	]
 	import commonListItem from '@/components/common/common-list-item.vue';
 	import loadmore from '@/components/common/loadmore.vue'
 	export default {
@@ -44,7 +134,8 @@
 			return {
 				scrollH: 600,
 				tabIndex: 0,
-				tabBars: [{
+				tabBars: [
+					{
 						name: '推荐',
 					},
 					{
@@ -67,11 +158,20 @@
 		onLoad() {
 			let res = uni.getSystemInfo({
 				success: res => {
-					console.log(res)
-					this.scrollH = res.windowHeight + uni.upx2px(100)
+					this.scrollH = res.windowHeight - uni.upx2px(100)
 				}
 			})
 			this.getData()
+		},
+		onNavigationBarSearchInputClicked() {
+			uni.navigateTo({
+				url: '../search/search'
+			})
+		},
+		onNavigationBarButtonTap() {
+			uni.navigateTo({
+				url: '../write/write'
+			})
 		},
 		methods: {
 			getData() {
@@ -80,96 +180,7 @@
 					let obj = {
 						// 1.上拉加载更多 2.加载中 3.没有更多了
 						loadmore: '上拉加载更多',
-						list: [{
-								nickname: '程序员鼓励师',
-								avatarUrl: '/static/img/me.jpg',
-								publishTime: '2022-04-03 19:20:12',
-								isFollow: false,
-								title: '',
-								thumbnail: '/static/img/banner1.jpg',
-								support: {
-									type: "support",
-									supportCount: 8,
-									unSupportCount: 2
-								},
-								commentCount: 10,
-								shareCount: 12
-							},
-							{
-								nickname: 'poicc',
-								avatarUrl: '/static/img/avatar1.jpg',
-								publishTime: '2022-04-03 20:20:12',
-								isFollow: false,
-								title: '穿过鲜花 走过荆棘 只为自由之地',
-								thumbnail: '/static/img/banner2.jpg',
-								support: {
-									type: "support",
-									supportCount: 8,
-									unSupportCount: 2
-								},
-								commentCount: 10,
-								shareCount: 12
-							},
-							{
-								nickname: 'mob',
-								avatarUrl: '/static/img/avatar2.jpg',
-								publishTime: '2022-04-03 21:20:12',
-								isFollow: false,
-								title: '我多想跑到海边 吹着海风',
-								thumbnail: '/static/img/banner3.jpeg',
-								support: {
-									type: "support",
-									supportCount: 8,
-									unSupportCount: 2
-								},
-								commentCount: 10,
-								shareCount: 12
-							},
-							{
-								nickname: 'mob',
-								avatarUrl: '/static/img/avatar3.jpeg',
-								publishTime: '2022-04-03 21:20:12',
-								isFollow: false,
-								title: '种子',
-								thumbnail: '/static/img/banner4.jpeg',
-								support: {
-									type: "",
-									supportCount: 0,
-									unSupportCount: 0
-								},
-								commentCount: 0,
-								shareCount: 0
-							},
-							{
-								nickname: 'poicc',
-								avatarUrl: '/static/img/avatar4.jpg',
-								publishTime: '2022-04-03 21:20:12',
-								isFollow: false,
-								title: '日子老师yyds',
-								thumbnail: '/static/img/banner5.jpg',
-								support: {
-									type: "support",
-									supportCount: 8,
-									unSupportCount: 2
-								},
-								commentCount: 10,
-								shareCount: 12
-							}, {
-								nickname: 'jo太郎',
-								avatarUrl: '/static/img/avatar5.png',
-								publishTime: '2022-04-03 21:20:12',
-								isFollow: false,
-								title: '呀嘞呀嘞daze',
-								thumbnail: '/static/img/banner6.png',
-								support: {
-									type: "support",
-									supportCount: 8,
-									unSupportCount: 2
-								},
-								commentCount: 10,
-								shareCount: 12
-							},
-						]
+						list: demo
 					}
 					arr.push(obj)
 				}
