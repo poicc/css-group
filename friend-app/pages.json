@@ -28,7 +28,10 @@
 		{
 			"path": "pages/dynamic/dynamic",
 			"style": {
-				"navigationBarTitleText": "动态"
+				"navigationBarTitleText": "动态",
+				"app-plus": {
+					"titleNView": false
+				}
 			}
 		},
 		{
@@ -73,7 +76,25 @@
 			}
 
 		}
-	],
+        ,{
+            "path" : "pages/topic-detail/topic-detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "动态详情",
+                "app-plus":{
+                  "titleNView":{
+                    "type":"transparent",
+                    "buttons":[
+                      {
+                        "type":"menu"
+                      }
+                    ]
+                  }
+                }
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "我的应用",

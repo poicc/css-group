@@ -1,6 +1,6 @@
 <template>
-	<view class="p-2">
-		<view class="uni-uploader">
+	<view class="px-2">
+		<view class="uni-uploader" v-if="show">
 			<view class="uni-uploader-head">
 				<view class="uni-uploader-title">点击可预览图片</view>
 				<view class="uni-uploader-info">{{imageList.length}}/9</view>
@@ -9,8 +9,10 @@
 				<view class="uni-uploader__files">
 					<block v-for="(image,index) in imageList" :key="index">
 						<view class="uni-uploader__file relative">
-							<image class="uni-uploader__img rounded" :src="image" :data-src="image" @tap.stop="previewImage"></image>
-							<view class="bg-neutral opacity-60 absolute top-0 right-0 px-1 rounded" @tap="deleteImage(index)">
+							<image class="uni-uploader__img rounded" :src="image" :data-src="image"
+								@tap.stop="previewImage"></image>
+							<view class="bg-neutral opacity-60 absolute top-0 right-0 px-1 rounded"
+								@tap="deleteImage(index)">
 								<text class="iconfont icon-shanchu text-white"></text>
 							</view>
 						</view>
@@ -37,6 +39,19 @@
 		['compressed', 'original']
 	]
 	export default {
+		props: {
+			list: {
+				type: Array
+			},
+			show: {
+				type: Boolean,
+				default: true
+			}
+		},
+		created() {
+			this.imageList = this.list
+		},
+
 		data() {
 			return {
 				title: 'choose/previewImage',
@@ -65,10 +80,10 @@
 					showCancel: true,
 					cancelText: '不删除',
 					confirmText: '删除',
-					success:res => {
-						if(res.confirm) {
-							this.imageList.splice(index,1)
-							this.$emit('change',this.imageList)
+					success: res => {
+						if (res.confirm) {
+							this.imageList.splice(index, 1)
+							this.$emit('change', this.imageList)
 						}
 					}
 				})
@@ -98,7 +113,7 @@
 						.length : this.count[this.countIndex],
 					success: (res) => {
 						this.imageList = this.imageList.concat(res.tempFilePaths);
-						this.$emit('change',this.imageList)
+						this.$emit('change', this.imageList)
 					},
 					fail: (err) => {
 						console.log("err: ", err);
