@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom-scrollbar</title>
+    <style>
+        .custom-scrollbar {
+            height: 150px;
+            overflow-y: scroll;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+           width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+           background: #883c9b;
+           border-radius: 12px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+           background: #a68bb6;
+           border-radius: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="custom-scrollbar">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab praesentium temporibus quia laboriosam facilis? Perspiciatis provident labore enim magnam nam quasi eius animi vitae ab. Eligendi rerum accusamus quas dignissimos?</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab praesentium temporibus quia laboriosam facilis? Perspiciatis provident labore enim magnam nam quasi eius animi vitae ab. Eligendi rerum accusamus quas dignissimos?</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab praesentium temporibus quia laboriosam facilis? Perspiciatis provident labore enim magnam nam quasi eius animi vitae ab. Eligendi rerum accusamus quas dignissimos?</p>
+    </div>
+</body>
+</html>

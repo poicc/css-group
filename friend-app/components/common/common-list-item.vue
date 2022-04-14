@@ -9,7 +9,7 @@
 			<view v-if="!item.isFollow" class="follow-btn animated fast" hover-class="bounceOut" @tap="follow">关注</view>
 			<view v-else class="unfollow-btn animated fast" hover-class="bounceOut" @tap="unFollow">已关注</view>
 		</view>
-		<view class="text-lg my-1 py-1" @tap="openDetail">{{ item.title }}</view>
+		<view class="text-lg my-1 py-1" @tap="openDetail(item)">{{ item.title }}</view>
 		<!-- 图片 -->
 		<image v-if="item.thumbnail" :src="item.thumbnail" style="height:350rpx;width:100%;border-radius: 5rpx;">
 		</image>
@@ -61,9 +61,11 @@
 				this.$emit('unFollow', this.index)
 			},
 			// 打开详情页
-			openDetail() {
-				console.log("打开详情页")
-			},
+			openDetail(item){
+						uni.navigateTo({
+							url:'../article-detail/article-detail?detailData='+encodeURIComponent(JSON.stringify(item))
+						})
+				      },
 			// 顶踩操作
 			doSupport(type) {
 				this.$emit('doSupport', {

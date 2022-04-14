@@ -8,7 +8,7 @@
 		<divider></divider>
 		<block v-for="count in 2">
 			<view class="top">
-				<text class="iconfont icon-xiaoxi1 text-orange text-lg font-weight-bolder pl-2 mx-2"></text>
+				<text class="iconfont icon-xiaoxi1 text-primary text-lg font-weight-bolder pl-2 mx-2"></text>
 				<text>【新人必读】uni-app实战 社区交友</text>
 			</view>
 			<divider></divider>
