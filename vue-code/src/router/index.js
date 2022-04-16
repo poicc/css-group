@@ -29,7 +29,30 @@ const routes = [
     path: "/counter",
     name: "Counter",
     component: () => import("../views/TestCounter.vue"),
- },
+  },
+  {
+    path: '/parent',
+    name: 'parent',
+    component: () => import('../views/Parent.vue'),
+  },
+  {
+    path: '/slotName',
+    name: 'slotName',
+    component: () =>
+      import('../views/SlotName.vue')
+  },
+  {
+    path: '/slotScopes',
+    name: 'slotScopes',
+    component: () =>
+      import('../views/SlotScopes.vue')
+  },
+  {
+    path: '/dynamicArguments',
+    name: 'DynamicArguments',
+    component: () =>
+      import('../views/DynamicArguments.vue')
+  }
 ]
 
 const router = createRouter({

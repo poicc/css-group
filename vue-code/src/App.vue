@@ -4,7 +4,11 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/todoList">todoList</router-link> |
     <router-link to="/markRaw">markRaw</router-link> |
-    <router-link to="/Counter">Counter</router-link>
+    <router-link to="/Counter">Counter</router-link> |
+    <router-link to="/parent">slots</router-link> | 
+    <router-link to="/slotName">slotName</router-link> |
+    <router-link to="/slotScopes">slotScopes</router-link> |
+    <router-link to="/dynamicArguments">DynamicArguments</router-link>
   </nav>
   <router-view />
 </template>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>image-mosaic</title>
+    <style>
+        .image-mosaic {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-auto-rows: 240px;
+        }
+        
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #353535;
+            font-size: 3rem;
+            color: #fff;
+            box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+            height: 100%;
+            width: 100%;
+            border-radius: 4px;
+            transition: all 500ms;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 0;
+            margin: 0;
+        }
+        
+        @media screen and (min-width: 600px) {
+            .card-tall {
+                /* 跨行合并 */
+                grid-row: span 2 / auto;
+            }
+            /* 跨列合并 */
+            .card-wide {
+                grid-column: span 2 / auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-mosaic">
+        <div class="card card-tall crad-wide" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/293.jpg')"></div>
+        <div class="card card-tall" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/294.jpg')"></div>
+        <div class="card" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/295.jpg')"></div>
+        <div class="card" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/270.jpg')"></div>
+        <div class="card" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/257.jpg')"></div>
+        <div class="card" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/248.jpg')"></div>
+        <div class="card card-wide" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/247.jpg')"></div>
+        <div class="card" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/245.jpg')"></div>
+        <div class="card" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/243.jpg')"></div>
+        <div class="card card-wide" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/206.jpg')"></div>
+        <div class="card" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/200.jpg')"></div>
+        <div class="card" style="background-image: url('https://soft2176-yj.oss-cn-hangzhou.aliyuncs.com/image/196.jpg')"></div>
+    </div>
+</body>
+
+</html>
