@@ -52,7 +52,18 @@ const routes = [
     name: 'DynamicArguments',
     component: () =>
       import('../views/DynamicArguments.vue')
-  }
+  },
+  {
+    path: '/globalApi',
+    name: 'globalApi',
+    component: () =>
+      import('../views/GlobalApi.vue')
+  },
+  {
+    path: '/transition',
+    name: 'transition',
+    component: () => import('../views/Transition.vue'),
+  },
 ]
 
 const router = createRouter({

@@ -8,7 +8,9 @@
     <router-link to="/parent">slots</router-link> | 
     <router-link to="/slotName">slotName</router-link> |
     <router-link to="/slotScopes">slotScopes</router-link> |
-    <router-link to="/dynamicArguments">DynamicArguments</router-link>
+    <router-link to="/dynamicArguments">DynamicArguments</router-link> |
+    <router-link to="/globalApi">GlobalApi</router-link>|
+    <router-link to="/transition">transition</router-link>
   </nav>
   <router-view />
 </template>
