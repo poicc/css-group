@@ -10,7 +10,10 @@
     <router-link to="/slotScopes">slotScopes</router-link> |
     <router-link to="/dynamicArguments">DynamicArguments</router-link> |
     <router-link to="/globalApi">GlobalApi</router-link>|
-    <router-link to="/transition">transition</router-link>
+    <router-link to="/transition">transition</router-link> |
+    <router-link to="/tele">tele</router-link> |
+    <router-link to="/async">async</router-link> |
+    <router-link to="/async1">async1</router-link> 
   </nav>
   <router-view />
 </template>

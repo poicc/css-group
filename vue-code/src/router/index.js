@@ -64,6 +64,21 @@ const routes = [
     name: 'transition',
     component: () => import('../views/Transition.vue'),
   },
+  {
+    path: '/tele',
+    name: 'tele',
+    component: () => import('../views/tele.vue'),
+  },
+  {
+    path: '/async',
+    name: 'async',
+    component: () => import('../views/TestAsync.vue'),
+  },
+  {
+    path: '/async1',
+    name: 'async1',
+    component: () => import('../views/TestAsync1.vue'),
+  },
 ]
 
 const router = createRouter({
