@@ -79,6 +79,11 @@ const routes = [
     name: 'async1',
     component: () => import('../views/TestAsync1.vue'),
   },
+  {
+    path: '/testRoute',
+    name: 'testRoute',
+    component: () => import('../views/TestRoute.vue'),
+  },
 ]
 
 const router = createRouter({
